@@ -10,7 +10,7 @@ class SegTree:
         if l+1 != r:
             self.left = SegTree(l, (l + r) // 2)
             self.right = SegTree((l + r) // 2, r)
-    
+        
     def set(self, i, x):
         if i < self.l or i >= self.r:
             return
