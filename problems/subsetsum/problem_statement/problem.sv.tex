@@ -3,9 +3,10 @@ Givet är $N$ positiva heltal. Hitta den delmängd av dessa heltal som har stör
 
 
 \section*{Indata}
-Den första raden innehåller två heltal $N, T$ ($1 \leq N \leq $).
+Den första raden innehåller två heltal $N, T$ ($1 \leq N \leq 10^5, 1 \leq T \leq 1000*N$).
+Därefter följer $N$ heltal $A_i$. Alla $A_i$ är slumpmässigt valda mellan $0$ och $1000$.
 \section*{Utdata}
-Om Rut kan passera över floden, skriv ut ett heltal: det minsta antalet timmar Rut behöver vänta för att bron ska bli tillräckligt färdig för att kunna gå till andra sidan. Annars, skriv ut "nej".
+Skriv ut ett heltal: den största summan mindre än $T$ man kan få av en delmängd.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper.
@@ -15,9 +16,8 @@ För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | p{12cm} |}
   \hline
   \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
-  $1$    & $10$      & $N \le 4$ \\ \hline
-  $2$    & $20$      & $N, M \le 50$ \\ \hline
-  $3$    & $30$      & $N, M \le 1000$ \\ \hline
-  $4$    & $15$      & $T \le 2000$ \\ \hline
-  $5$    & $25$      & Inga ytterligare begräsningar. \\ \hline
+  $1$    & $10$      & $N \leq 100$ $ \\ \hline
+  $2$    & $30$      & $N \leq 4000$ \\ \hline
+  $3$    & $30$      & $N \leq 10000$ \\ \hline 
+  $4$    & $30$      & Inga ytterligare begräsningar. \\ \hline
 \end{tabular}

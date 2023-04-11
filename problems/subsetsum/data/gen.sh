@@ -43,9 +43,3 @@ tc hugerand1 gen_rand n=100000 v=1000
 tc hugerand2 gen_rand n=100000 v=1000
 tc hugerand3 gen_rand n=100000 v=1000
 
-group g5hugest 30
-include_group g4huge
-limits maxn=100000 maxv=1000
-tc hugestrand1 gen_rand n=100000 v=1000
-tc hugestrand2 gen_rand n=100000 v=1000
-tc hugestrand3 gen_rand n=100000 v=1000
