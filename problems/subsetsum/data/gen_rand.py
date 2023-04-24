@@ -18,5 +18,5 @@ n = int(cmdlinearg('n'))
 v = int(cmdlinearg('v'))
 
 items = [random.randint(0,v) for i in range(n)]
-print(n,random.randint(0,sum(items)))
+print(n)
 print(" ".join(str(i) for i in items))
