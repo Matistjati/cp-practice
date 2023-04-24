@@ -1,0 +1,27 @@
+\problemname{Deduplicate}
+Rasmus sitter och spelar sitt favoritspel ``Numbers and dragons: Euler's revenge'', det första spelet med ``oändligt mycket innehåll''. Som vi alla vet kan detta inte vara sant. \\
+Rasmus nöjer sig dock inte med att referera till allmän kunskap, han vill ha fakta. Efter att ha kollat på spelets källkod märker han att varje gång man pratar med en NPC i spelet skapas dialogen baserat på en siffra $K$.
+Denna siffra $K$ bestäms alltid från förra värdet på $K$ utifrån följande formel $K_{i+1}=(a \times K_i+c) mod 2^m$, och $K_0$ är satt till en konstant. Problemet med denna formeln är
+att den ibland kan ge samma $K$ flera gånger. Han vill försöka förbättra spelet genom att hitta nya värden på $K_0$, $a$, $c$ och $m$. För att göra detta behöver han hjälp med att skriva ett
+program som beräknar hur många unika värden $K$ antar de första $N$ gångerna $K$ beräknas för $Q$ olika värden på $K_0$, $a$, $c$, $m$ och $N$.
+
+\section*{Indata}
+Den första raden innehåller heltalet $Q$ ($1 \leq Q \leq 1000$), antalet frågor som Rasmus kommer ställa ditt program.
+Därefter följer fem heltal $K_0$, $a$, $c$, $m$ och $N$ ($0 \le K_0, a, c, < 2^m$, $1 \le m \le 20$, $1 \le N \le 10^5$), de tre startvärdena för formeln och antalet gånger formeln ska köras.
+
+\section*{Utdata}
+Skriv ut $Q$ rader där den $i$:te raden innehåller ett heltal: antalet unika värden $K$ antar efter att formeln har körts $N_i$ gånger.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $25$      & $Q \leq 10$ \\ \hline
+  $2$    & $25$      & $Q \leq 50$ \\ \hline
+  $3$    & $25$      & $Q \leq 300$ \\ \hline
+  $4$    & $25$      & $Q \leq 1000$ \\ \hline
+\end{tabular}
