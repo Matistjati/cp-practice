@@ -34,6 +34,6 @@ for i in range(q):
         r=l
 
     if T == 1:
-        print(T, l, r, randint(1, hi))
+        print(T, l, r, randint(1, int(1e9)))
     else:
         print(T, l, r)
