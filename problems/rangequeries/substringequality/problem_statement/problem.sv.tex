@@ -1,0 +1,32 @@
+\problemname{Substring Equality}
+Givet är en sträng som innehåller $N$ bokstäver. Du ska svara på $Q$ frågor av formen "är delsträngen i
+intervallet $[l,r]$ samma som delsträngen i intervallet $[v,h]$" och "ändra den $i$:te bokstaven till $C$".
+
+\section*{Indata}
+Den första raden innehåller en sträng med $N$ ($1 \leq N \leq 10^5$) bokstäver. Alla bokstäver är mellan
+\texttt{a}-\texttt{z}.
+Den andra raden innehåller ett heltal $Q$ ($1 \leq Q \leq 10^5$).
+Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
+
+Om $T=0$ följer heltalen $l,r,v,h$ ($0 \leq l \leq r \leq N-1, 0 \leq v \leq h \leq N-1$).
+I detta fall ska du "Ja" om delsträngen $[l,r]$ är samma som delsträngen $[v,h]$, annars "Nej".
+
+Om $T=1$ följer heltalen $i, C$ ($0 \leq i \leq N-1$, \texttt{a} $\leq C \leq$ \texttt{z}). I detta fall ska du ändra den $i$:te bokstaven till $C$. 
+
+\section*{Utdata}
+För varje fråga med $T=0$, skriv ut "Ja" om delsträngen $[l,r]$ är samma som delsträngen $[v,h]$, annars "Nej".
+
+\section*{Poängsättning}
+Din lösning kommer att testas på flera testfallsgrupper.
+\noindent
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  $1$    & $25$       &  $T=0$ för alla frågor och testdatan är snällare \\ \hline
+  $2$    & $25$       &  $T=0$ för alla frågor \\ \hline
+  $3$    & $25$       &  Testdatan är snällare \\ \hline
+  $4$    & $25$       &  Inga ytterligare begränsningar \\ \hline
+\end{tabular}
