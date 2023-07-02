@@ -161,17 +161,17 @@ struct Tree
 	vi tree;
 	vi treesum;
 
-	Tree(int n) : tree(n*4), treesum(n*4)
+	Tree(int n) : tree(n * 4), treesum(n * 4)
 	{}
 
 	void reduce(int x, int l, int r, int ql, int qr, int v)
 	{
 		if (r<ql || l>qr) return;
-		if (tree[x]>v)
+		if (tree[x] < v)
 		{
 			return;
 		}
-		else if (l==r)
+		else if (l == r)
 		{
 			treesum[x] %= v;
 			tree[x] = treesum[x];
@@ -180,9 +180,9 @@ struct Tree
 		{
 			int mid = (l + r) / 2;
 			reduce(x * 2, l, mid, ql, qr, v);
-			reduce(x * 2+1, mid+1, r, ql, qr, v);
-			treesum[x] = (treesum[x * 2] + treesum[x * 2 + 1])%mod;
-			tree[x] = min(tree[x * 2], tree[x * 2 + 1]);
+			reduce(x * 2 + 1, mid + 1, r, ql, qr, v);
+			treesum[x] = (treesum[x * 2] + treesum[x * 2 + 1]) % mod;
+			tree[x] = max(tree[x * 2], tree[x * 2 + 1]);
 		}
 	}
 
@@ -200,7 +200,7 @@ struct Tree
 			set(x * 2, l, mid, i, v);
 			set(x * 2 + 1, mid + 1, r, i, v);
 			treesum[x] = (treesum[x * 2] + treesum[x * 2 + 1]) % mod;
-			tree[x] = min(tree[x * 2], tree[x * 2 + 1]);
+			tree[x] = max(tree[x * 2], tree[x * 2 + 1]);
 		}
 	}
 
@@ -223,12 +223,12 @@ int32_t main()
 	while (q--)
 	{
 		dread(int, t);
-		if (t==0)
+		if (t == 0)
 		{
 			dread2(int, l, r);
 			cout << tree.query(1, 0, n - 1, l, r) << "\n";
 		}
-		else if (t==1)
+		else if (t == 1)
 		{
 			dread2(int, i, v);
 			tree.set(1, 0, n - 1, i, v);

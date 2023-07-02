@@ -166,14 +166,14 @@ int32_t main()
 	while (q--)
 	{
 		dread(int, t);
-		if (t==0)
+		if (t == 0)
 		{
 			dread2(int, l, r);
 			int ans = 0;
 			repp(i, l, r + 1) ans = (ans + nums[i]) % mod;
 			cout << ans << "\n";
 		}
-		else if (t==1)
+		else if (t == 1)
 		{
 			dread2(int, i, v);
 			nums[i] = v;
@@ -181,7 +181,7 @@ int32_t main()
 		else
 		{
 			dread3(int, l, r, v);
-			repp(i, l, r + 1) nums[i] %= mod;
+			repp(i, l, r + 1) nums[i] %= v;
 		}
 	}
 
