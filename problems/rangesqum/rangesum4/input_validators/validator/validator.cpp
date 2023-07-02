@@ -2,9 +2,9 @@
 #include <set>
 
 void run() {
-    int n = Int(1, int(1e5));
+    int n = Int(1, int(5e5));
     Space();
-    int q = Int(1, int(1e5)); Endl();
+    int q = Int(1, int(5e5)); Endl();
 
     for (int i = 0; i < q; i++)
     {

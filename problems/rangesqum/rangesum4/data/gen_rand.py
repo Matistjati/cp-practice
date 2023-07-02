@@ -17,7 +17,7 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 mode = cmdlinearg("mode")
 
-n=int(1e5)
+n=int(5e5)
 q=n
 
 print(n,q)
@@ -38,7 +38,7 @@ if mode=="random":
 
 elif mode=="worstcase":
     for i in range(q-60):
-        print(1, i, int(1e9)-randint(1, 100))
+        print(1, i, int(1e9)-int(cmdlinearg("d", 0)))
     
     k=int(1e9)-100
     for i in range(30):

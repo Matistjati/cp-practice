@@ -1,6 +1,6 @@
 \problemname{Range Sum 4}
 Du har en lista med $N$ stycken heltal. Till en början har alla talen värdet $0$. Du ska svara på $Q$
-frågor av formen "vad är summan av talen i intervallet $[l,r]$ modulo $10^9+7$",
+frågor av formen "vad är summan av talen i intervallet $[l,r]$,
 "sätt värdet av det $i$:te talet till $V$" eller "sätt värdet av alla tal $i$ till i intervallet $[l,r]$
 till $i$ modulo $k$".
 
@@ -8,14 +8,14 @@ till $i$ modulo $k$".
 Den första raden innehåller heltalen $N, Q$ ($1 \leq N, Q \leq 10^5$).
 Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
 
-Om $T=0$ följer heltalen $l,r$ ($0 \leq l \leq r \leq N - 1$). I detta fall ska du skriva ut summan av alla talen i intervallet $[l,r]$ modulo $10^9+7$.
+Om $T=0$ följer heltalen $l,r$ ($0 \leq l \leq r \leq N - 1$). I detta fall ska du skriva ut summan av alla talen i intervallet $[l,r]$.
 
 Om $T=1$ följer heltalen $i, V$ ($0 \leq i \leq N - 1$, $1 \leq V \leq 10^9$). I detta fall ska du sätta värdet av det $i$:te talet till $V$.
 
 Om $T=2$ följer heltalen $l,r,k$ ($0 \leq l \leq r \leq N-1$, $1 \leq k \leq 10^9$). I detta fall ska du sätta värdet av varje tal i intervallet $[l,r]$ till det talet modulo $k$.
 
 \section*{Utdata}
-För varje fråga med $T=0$, skriv ut summan i det efterfrågade intervallet modulo $10^9+7$.
+För varje fråga med $T=0$, skriv ut summan i det efterfrågade intervallet.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på flera testfall.

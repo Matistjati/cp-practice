@@ -17,5 +17,5 @@ tc g1_3 gen_rand mode=random
 tc g1_4 gen_rand mode=random
 tc g1_5 gen_rand mode=worstcase
 tc g1_6 gen_rand mode=worstcase
-tc g1_7 gen_rand mode=worstcase
-tc g1_8 gen_rand mode=worstcase
+tc g1_7 gen_rand mode=worstcase d=100
+tc g1_8 gen_rand mode=worstcase d=100

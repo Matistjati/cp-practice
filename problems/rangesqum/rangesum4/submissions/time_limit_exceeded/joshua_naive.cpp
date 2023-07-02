@@ -170,7 +170,7 @@ int32_t main()
 		{
 			dread2(int, l, r);
 			int ans = 0;
-			repp(i, l, r + 1) ans = (ans + nums[i]) % mod;
+			repp(i, l, r + 1) ans += nums[i];
 			cout << ans << "\n";
 		}
 		else if (t == 1)

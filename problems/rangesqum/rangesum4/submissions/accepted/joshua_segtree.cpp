@@ -181,7 +181,7 @@ struct Tree
 			int mid = (l + r) / 2;
 			reduce(x * 2, l, mid, ql, qr, v);
 			reduce(x * 2 + 1, mid + 1, r, ql, qr, v);
-			treesum[x] = (treesum[x * 2] + treesum[x * 2 + 1]) % mod;
+			treesum[x] = treesum[x * 2] + treesum[x * 2 + 1];
 			tree[x] = max(tree[x * 2], tree[x * 2 + 1]);
 		}
 	}
@@ -199,7 +199,7 @@ struct Tree
 			int mid = (l + r) / 2;
 			set(x * 2, l, mid, i, v);
 			set(x * 2 + 1, mid + 1, r, i, v);
-			treesum[x] = (treesum[x * 2] + treesum[x * 2 + 1]) % mod;
+			treesum[x] = treesum[x * 2] + treesum[x * 2 + 1];
 			tree[x] = max(tree[x * 2], tree[x * 2 + 1]);
 		}
 	}
@@ -209,7 +209,7 @@ struct Tree
 		if (r<ql || l>qr) return 0;
 		if (l >= ql && r <= qr) return treesum[x];
 		int mid = (l + r) / 2;
-		return (query(x * 2, l, mid, ql, qr) + query(x * 2 + 1, mid + 1, r, ql, qr)) % mod;
+		return query(x * 2, l, mid, ql, qr) + query(x * 2 + 1, mid + 1, r, ql, qr);
 	}
 };
 
