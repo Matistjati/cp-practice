@@ -154,73 +154,39 @@ template<typename T, typename U> inline int randint(T lo, U hi) { return uniform
 template<typename T> inline T randel(vector<T>& v) { return v[uniform_int_distribution<int>(int(0), int(v.size()) - int(1))(rng)]; } // [lo,hi]
 #endif
 const ll mod = 1e9 + 7;
-vp2 dirs = { {0,1},{0,-1},{1,0},{-1,0} };
+vp2 dirs = { {0,1},{0,-1},{1,0},{-1,0}, {0,0} };
 
-struct Mod {
-	ll x;
-	Mod(ll xx) : x(xx) {}
-	Mod operator+(Mod b) { return Mod((x + b.x) % mod); }
-	Mod operator-(Mod b) { return Mod((x - b.x + mod) % mod); }
-	Mod operator*(Mod b) { return Mod((x * b.x) % mod); }
-
-	Mod operator^(ll e) {
-		if (!e) return Mod(1);
-		Mod r = *this ^ (e / 2); r = r * r;
-		return e & 1 ? *this * r : r;
-	}
-};
-
-struct Node
+struct Tree
 {
-	Node* lchild;
-	Node* rchild;
-	int l, r;
-	Mod sum;
-	Mod lazy;
+	vector<unordered_map<int, int>> maps;
 
-	Node(int l, int r) : lchild(nullptr), rchild(nullptr), l(l), r(r), sum(0), lazy(0) {}
-
-    void push()
-    {
-        int mid = (l + r) / 2;
-        if (!lchild)
-        {
-            lchild = new Node(l, mid);
-            rchild = new Node(mid + 1, r);
-        }
-        lchild->sum = lchild->sum + lazy*(mid-l+1);
-        lchild->lazy = lchild->lazy + lazy;
-
-        rchild->sum = rchild->sum + lazy*(r-(mid+1)+1);
-        rchild->lazy = rchild->lazy + lazy;
-        lazy = 0;
-    }
-
-	void add(int ql, int qr, int v)
+	Tree(vi& nums) : maps(nums.size()*4)
 	{
-		if (l > qr || r < ql) return;
-		if (l >= ql && r <= qr)
+		construct(nums, nums, 1, 0, nums.size() - 1);
+	}
+
+	void construct(vi& orignums, vi nums, int x, int l, int r)
+	{
+		repe(num, nums) maps[x][num]++;
+		if (l!=r)
 		{
-			sum = sum + v*(r-l+1);
-			lazy = lazy + v;
-		}
-		else
-		{
-			push();
-			lchild->add(ql, qr, v);
-			rchild->add(ql, qr, v);
-			sum = rchild->sum + lchild->sum;
+			int mid = (l + r) / 2;
+			vi left, right;
+			repp(i, l, mid+1) left.push_back(orignums[i]);
+			repp(i, mid+1, r + 1) right.push_back(orignums[i]);
+			construct(orignums, left, x * 2, l, mid);
+			construct(orignums, right, x * 2+1, mid+1, r);
 		}
 	}
 
-	Mod query(int ql, int qr)
+	int query(int x, int l, int r, int ql, int qr, int v)
 	{
-		if (l > qr || r < ql) return 0;
-		if (l >= ql && r <= qr) return sum;
+		if (r<ql || l>qr) return 0;
+		if (l >= ql && r <= qr) return maps[x][v];
 		else
 		{
-			push();
-			return lchild->query(ql, qr) + rchild->query(ql, qr);
+			int mid = (l + r) / 2;
+			return query(x * 2, l, mid, ql, qr, v) + query(x * 2 + 1, mid + 1, r, ql, qr, v);
 		}
 	}
 };
@@ -229,23 +195,13 @@ int32_t main()
 {
 	fast();
 
-	dread(int, q);
-	Node* root = new Node(0, 1e9 + 10);
+	dread2(int, n, q);
+	readvector(int, nums, n);
+	Tree tree(nums);
 	while (q--)
 	{
-		dread(int, t);
-		if (t)
-		{
-			dread3(int, l, r, k);
-			root->add(l, r, k);
-		}
-		else
-		{
-			dread2(int, l, r);
-            int x = root->query(l, r).x;
-            assert(x>=0&&x<mod);
-			cout << x << "\n";
-		}
+		dread3(int, a, b, v);
+		cout << tree.query(1, 0, n - 1, a, b, v) << "\n";
 	}
 
 
