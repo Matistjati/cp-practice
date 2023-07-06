@@ -158,31 +158,32 @@ vp2 dirs = { {0,1},{0,-1},{1,0},{-1,0}, {0,0} };
 
 struct Tree
 {
-	vector<unordered_map<int, int>> maps;
+	vvi maps;
 
-	Tree(vi& nums) : maps(nums.size()*4)
+	Tree(vi& nums) : maps(nums.size() * 4)
 	{
-		construct(nums, nums, 1, 0, nums.size() - 1);
+		construct(nums, 1, 0, nums.size() - 1);
 	}
 
-	void construct(vi& orignums, vi nums, int x, int l, int r)
+	void construct(vi& nums, int x, int l, int r)
 	{
-		repe(num, nums) maps[x][num]++;
-		if (l!=r)
+		repp(i,l,r+1)
+		{
+			maps[x].push_back(nums[i]);
+		}
+		sort(all(maps[x]));
+		if (l != r)
 		{
 			int mid = (l + r) / 2;
-			vi left, right;
-			repp(i, l, mid+1) left.push_back(orignums[i]);
-			repp(i, mid+1, r + 1) right.push_back(orignums[i]);
-			construct(orignums, left, x * 2, l, mid);
-			construct(orignums, right, x * 2+1, mid+1, r);
+			construct(nums, x * 2, l, mid);
+			construct(nums, x * 2 + 1, mid + 1, r);
 		}
 	}
 
 	int query(int x, int l, int r, int ql, int qr, int v)
 	{
 		if (r<ql || l>qr) return 0;
-		if (l >= ql && r <= qr) return maps[x][v];
+		if (l >= ql && r <= qr) return upper_bound(all(maps[x]), v) - begin(maps[x]);
 		else
 		{
 			int mid = (l + r) / 2;
@@ -203,7 +204,6 @@ int32_t main()
 		dread3(int, a, b, v);
 		cout << tree.query(1, 0, n - 1, a, b, v) << "\n";
 	}
-
 
 	quit;
 }
