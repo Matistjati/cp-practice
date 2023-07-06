@@ -188,11 +188,11 @@ struct Node
             lchild = new Node(l, mid);
             rchild = new Node(mid + 1, r);
         }
-        lchild->sum = lchild->sum + lazy*(mid-l+1);
-        lchild->lazy = lchild->lazy + lazy;
+        lchild->sum += lazy*(mid-l+1);
+        lchild->lazy += lazy;
 
-        rchild->sum = rchild->sum + lazy*(r-(mid+1)+1);
-        rchild->lazy = rchild->lazy + lazy;
+        rchild->sum += lazy*(r-(mid+1)+1);
+        rchild->lazy += lazy;
         lazy = 0;
     }
 
