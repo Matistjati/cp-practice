@@ -6,7 +6,7 @@ void run() {
     Space();
     int q = Int(1, int(2e5));
     Endl();
-    SpacedInts(n, 0, int(1e9));
+    SpacedInts(n, 0, int(1e9)-1);
 
     for (int i = 0; i < q; i++)
     {

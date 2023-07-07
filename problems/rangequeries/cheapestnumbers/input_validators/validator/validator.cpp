@@ -2,9 +2,9 @@
 #include <set>
 
 void run() {
-    int n = Int(1, int(2e5));
+    int n = Int(1, int(1e5));
     Space();
-    int q = Int(1, int(2e5));
+    int q = Int(1, int(1e5));
     Endl();
     SpacedInts(n, 0, int(1e9)-1);
 
