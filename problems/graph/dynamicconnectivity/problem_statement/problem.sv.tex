@@ -1,0 +1,27 @@
+\problemname{Dynamic Connectivity}
+Det finns en graf med $N$ noder utan kanter. Du ska hantera $Q$ frågor av formen "lägg till en kant mellan
+nod $a$ och $b$", "ta bort kanten mellan nod $a$ och $b$" och "finns det en väg mellan nod $a$ och $b$"?
+
+
+
+\section*{Indata}
+Den första raden innehåller heltalet $Q$ ($1 \leq Q \leq 2*10^5$), antalet frågor.
+Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
+
+Om $T=0$ följer två heltal $a,b$ ($0 \leq a,b \leq N-1$, $a \neq b$). I detta fall ska du lägga till en oriktad kant mellan nod $a$ och $b$.
+
+Om $T=1$ följer två heltal $a,b$ ($0 \leq a,b \leq N-1$, $a \neq b$). I detta fall ska du ta bort kanten mellan nod $a$ och $b$. Det är 
+garanterat att det finns en kant mellan $a$ och $b$ när denna frågan kommer.
+
+Om $T=2$ följer två heltal $a,b$ ($0 \leq a,b \leq N-1$, $a \neq b$). I detta fall ska du skriva ut "Ja" om det finns en väg mellan nod
+$a$ och $b$, annars "Nej".
+
+Vid varje tidpunkt finns det max en kant mellan varje par av noder.
+
+\section*{Utdata}
+För varje fråga med $T=2$, skriv "Ja" om det finns en väg mellan nod $a$ och $b$, annars "Nej".
+
+\section*{Poängsättning}
+Din lösning kommer att testas på flera testfall.
+\noindent
+För att lösa problemet måste din lösning lösa alla testfallen korrekt.
