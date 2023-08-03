@@ -1,0 +1,32 @@
+\problemname{Christians algoritm}
+Christian fick precis lära sig om det klassiska "sopptransports-problemet". I detta klassiska problem har du en bil som kan transportera upp till $C$ kg soppa.
+Du har ett lager med $N$ stycken soppburkar, där varje har en vikt $W$ och en kvalitet $K$. Målet är att planera nästa transport, där målet är att
+välja ett par soppburkar så att summan av kvaliteten av soppan du transporterar är så stor som möjligt, samtidigt som summan av deras vikt är mindre än $C$ kg.
+
+Det tar inte ens 5 sekunder för honom att komma på följande lösning: sortera listan först med avseende på $\frac{K}{W}$. D.v.s. så kommer en soppburk med $K=5,W=2$ före en soppburk
+med $K=2,W=1$. Intuitivt ger dessa mest kvalitet per vikt. Därefter går vi igenom listan från vänster till höger och lastar på soppburkar så länge tilläget av denna soppburk inte
+kommer orsaka att totalvikten av lastbilen överskrids.
+
+Han insåg dock snabbt att denna algoritm inte alltid är optimal. Därför gjorde han följande förbättring: han kör ovanstående algoritm, fast testar även att starta den på
+varje möjlig startpunkt. D.v.s., först testar han att köra den från början, därefter lastar han ut soppbilen och testar att istället starta om från position $2$ i listan av
+soppburkar, och så vidare. Denna algoritm funkar så bra att han inte hittar fall där den ger fel svar. Kan du hjälpa honom att avgöra om hans algoritm ger bästa svaret
+för en given instans av sopptransports-problemet?
+
+\section*{Indata}
+Den första raden innehåller heltalen $N, C$ ($1 \leq N \leq 5*10^4, 1 \leq C \leq 100$), antalet soppburkar och hur många kg som soppbilen kan transportera.
+Därefter $N$ rader, där den $i$:te raden innehåller heltalen $K_i,W_i$ ($1 \leq K_i \leq 1000, 1 \leq W_i \leq C$), kvaliteten och vikten på den $i$:te soppburken.
+
+\section*{Utdata}
+Om Christians algoritm ger det optimala svaret, skriv ut "ja". Annars, skriv ut "nej".
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper.
+För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $25$      & $ N \leq 1000$ \\ \hline
+  $2$    & $25$      & Inga ytterligare begränsningar \\ \hline
+\end{tabular}

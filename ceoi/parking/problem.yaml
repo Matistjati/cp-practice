@@ -1,0 +1,8 @@
+source: Central European Olympiad in Informatics 2023
+rights_owner: Central European Olympiad in Informatics
+license: permission
+type: scoring
+grading:
+    show_test_data_groups: yes
+
+validation: custom score
