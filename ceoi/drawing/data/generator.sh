@@ -81,7 +81,7 @@ tc_manual ../manual_tests/drawing.4l.in
 tc_manual ../manual_tests/drawing.4m.in
 tc_manual ../manual_tests/drawing.4n.in
 
-group group5 35
+group group5 25
 include_group group1
 include_group group4
 limits maxn=$MAXN

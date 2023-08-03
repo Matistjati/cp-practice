@@ -8,8 +8,8 @@ using namespace std;
 #define sz(x) (int)(x).size()
 #define debug(...) //ignore
 typedef long long ll;
-typedef pair<int, int> pii;
-typedef vector<int> vi;
+typedef pair<ll, ll> pii;
+typedef vector<ll> vi;
 typedef long double ld;
 
 // A point in 2D plane
@@ -80,10 +80,10 @@ bool doIntersect(Segment s1, Segment s2)
 
     // Find the four orientations needed for general and
     // special cases
-    int o1 = orientation(p1, q1, p2);
-    int o2 = orientation(p1, q1, q2);
-    int o3 = orientation(p2, q2, p1);
-    int o4 = orientation(p2, q2, q1);
+    ll o1 = orientation(p1, q1, p2);
+    ll o2 = orientation(p1, q1, q2);
+    ll o3 = orientation(p2, q2, p1);
+    ll o4 = orientation(p2, q2, q1);
 
     
 
@@ -108,19 +108,19 @@ bool doIntersect(Segment s1, Segment s2)
 }
 
 // Find predecessor of iterator in s.
-multiset<Event>::iterator pred(multiset<Event>& s, set<Event>::iterator it) {
+multiset<Event>::iterator pred(multiset<Event>& s, multiset<Event>::iterator it) {
     return it == s.begin() ? s.end() : --it;
 }
 
 // Find successor of iterator in s.
-multiset<Event>::iterator succ(multiset<Event>& s, set<Event>::iterator it) {
+multiset<Event>::iterator succ(multiset<Event>& s, multiset<Event>::iterator it) {
     return ++it;
 }
 
 // Returns true if any two lines intersect.
-int isIntersect(vector<Segment> arr)
+ll isIntersect(vector<Segment> arr)
 {
-    int n = arr.size();
+    ll n = arr.size();
 
     // Pushing all points to a vector of events
     vector<Event> e;
@@ -130,13 +130,15 @@ int isIntersect(vector<Segment> arr)
     }
 
     // Sorting all events according to x coordinate.
-    sort(e.begin(), e.end(), [](Event& e1, Event& e2) {return e1.x < e2.x; });
+    stable_sort(e.begin(), e.end(), [](const Event& e1, const Event& e2) {return e1.x < e2.x; });
+
 
     // For storing active segments.
     multiset<Event> s;
     // Traversing through sorted points
     for (int i = 0; i < 2 * n; i++)
     {
+
         Event curr = e[i];
         int index = curr.index;
 
@@ -149,11 +151,9 @@ int isIntersect(vector<Segment> arr)
             // Check if current point intersects with
             // any of its adjacent
             if (next != s.end() && doIntersect(arr[next->index], arr[index])) {
-                author_message("A");
                 return 1;
             }
             if (prev != s.end() && doIntersect(arr[prev->index], arr[index])) {
-                author_message("B");
                 return 1;
             }
             // if same line segment is there then decrease answer as it got increased twice
@@ -161,30 +161,18 @@ int isIntersect(vector<Segment> arr)
             // Insert current point (or event)
             s.insert(curr);
         }
-
-        // If current point is right of its segment
         else
         {
             // Find the iterator
             auto it = s.find(Event(arr[index].left.x, arr[index].left.y, true, index));
-            // Find above and below points
-            auto next = succ(s, it);
-            auto prev = pred(s, it);
 
-            //// If above and below point intersect
-            //if (next != s.end() && prev != s.end())
-            //{
-            //    return 1;
-            //}
-
-            // Remove current segment
             s.erase(it);
-
         }
     }
 
     return 0;
 }
+
 int main(int argc, char **argv) {
     init_io(argc, argv);
 
