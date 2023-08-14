@@ -11,6 +11,7 @@ void run() {
         int t = Int(1, 2); Space();
         int l = Int(1, hi); Space();
         int r = Int(1, hi); Endl();
+        if (t==2) assert(l!=r);
     }
 
     Eof();

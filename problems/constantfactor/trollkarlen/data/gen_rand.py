@@ -19,6 +19,12 @@ mode = cmdlinearg("mode", "random")
 n = int(cmdlinearg("n"))
 maxv = int(cmdlinearg("n", int(1e9)))
 
+def gendifferent(x):
+    while 1:
+        k = randint(lo, maxv)
+        if k!=x:
+            return k
+
 print(n)
 if mode=="random":
     tight = int(cmdlinearg("tight"))
@@ -28,7 +34,8 @@ if mode=="random":
         if randint(0,1):
             print(1, randint(lo, maxv), randint(1, maxv))
         else:
-            print(2, randint(lo, maxv), randint(1, maxv))
+            x = randint(lo,maxv)
+            print(2, x, gendifferent(x))
 elif mode=="long":
     lo = int(maxv*0.95)
     print(1, 420, int(maxv/3))
@@ -37,12 +44,12 @@ elif mode=="long":
     while i < n-1:
         if randint(0,10)==0:
             if i == n-2: continue
-            nextv = randint(lo, maxv)
+            nextv = gendifferent(head)
             print(1, nextv, randint(1, maxv))
             print(2, nextv, head)
             i+=2
         else:
-            nextv = randint(lo,maxv)
+            nextv = gendifferent(head)
             print(2, head, nextv)
             head = nextv
             i+=1
