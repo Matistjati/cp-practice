@@ -1,10 +1,11 @@
 #!/bin/bash
-. ../../testdata_tools/gen.sh
+. ../../../testdata_tools/gen.sh
 ulimit -s unlimited
 
 use_solution joshua_bitsetsqrt.cpp
 
 compile gen_rand.py
+compile gen_mod.py
 
 samplegroup
 limits maxn=10 maxv=20
@@ -23,4 +24,4 @@ tc full2 gen_rand n=100000 v=100
 tc full3 gen_rand n=100000 v=100
 tc full4 gen_rand n=100000 v=100
 tc full5 gen_rand n=100000 v=100
-
+tc full6 gen_mod  n=100000 v=100
