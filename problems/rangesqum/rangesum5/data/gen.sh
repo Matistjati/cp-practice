@@ -8,6 +8,7 @@ compile gen_rand.py
 
 samplegroup
 sample 1
+sample 2
 
 group full 100
 include_group sample
