@@ -1,16 +1,25 @@
 \problemname{Range Sum 3}
-Du har en stor lista med $10^9$ tal. Till en början har alla talen värdet $0$. Du ska svara på $Q$ frågor av formen "vad är summan av talen i intervallet $[l,r]$ modulo $10^9+7$" eller "lägg till $k$ till alla talen i intervallet $[l,r]$".
+\newcommand{\Mod}[1]{\ (\mathrm{mod}\ #1)}
+
+Du har en lista med heltalen $A_0, A_1, \dots, A_{10^9}$. Till en början är $A_i=0$ för alla $i=0,1,\dots,10^9$.
+Du ska hantera två sorters frågor:
+
+\begin{itemize}
+    \item Typ 0: givet heltalen $l$ och $r$, skriv ut värdet på  $A_l + A_{l+1} + \cdots + A_{r} \Mod{10^9+7}$
+    \item Typ 1: givet heltalen $l$, $r$ och $v$, sätt $A_i=A_i+v$
+\end{itemize}
 
 \section*{Indata}
 Den första raden innehåller heltalet $Q$ ($1 \leq Q \leq 10^5$).
-Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
+Därefter följer $Q$ rader som innehåller en fråga vardera. Dessa ska behandlas som beskrivet ovan.
+Varje fråga börjar med talet $T$, typen av frågan.
 
-Om $T=0$ följer heltalen $l,r$ ($0 \leq l \leq r < 10^9$). I detta fall ska du skriva ut summan av alla talen i intervallet $[l,r]$ modulo $10^9+7$.
+Om $T=0$ följer heltalen $l,r$ ($0 \leq l \leq r \leq 10^9$).
 
-Om $T=1$ följer heltalen $l,r,k$ ($0 \leq l \leq r < 10^9$, $1 \leq k \leq 10^9$). I detta fall ska du lägga till $k$ till alla talen i intervallet $[l,r]$.
+Om $T=1$ följer heltalen $l, r, v$ ($0 \leq l \leq r \leq 10^9$, $1 \leq V \leq 10^9$).
 
 \section*{Utdata}
-För varje fråga med $T=0$, skriv ut summan i det efterfrågade intervallet modulo $10^9+7$.
+För varje fråga med $T=0$, skriv ut summan i det efterfrågade intervallet.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på flera testfallsgrupper.

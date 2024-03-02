@@ -8,14 +8,14 @@ void run() {
 
     for (int i = 0; i < q; i++)
     {
-        int t = Int(0, 2); Space();
-        if (t==1)
+        int t = Int(0, 1); Space();
+        if (t==0)
         {
             int l = Int(0, n-1);
             Space();
             Int(l, n-1);
         }
-        if (t==2)
+        if (t==1)
         {
             int l = Int(0, n-1);
             Space();

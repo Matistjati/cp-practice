@@ -4,8 +4,8 @@ Du har en lista med heltalen $A_0, A_1, \cdots, A_{N-1}$. Till en början är $A
 Du ska hantera två sorters frågor:
 
 \begin{itemize}
-    \item Typ 1: givet heltalen $l$ och $r$, skriv ut värdet på  $A_l^3 + A_{l+1}^3 + \cdots + A_{r}^3 \Mod{10^9+7}$
-    \item Typ 2: givet heltalen $l,r,v$, sätt $A_i=A_i+v$ för alla $i \in [l,r]$
+    \item Typ 0: givet heltalen $l$ och $r$, skriv ut värdet på  $A_l^3 + A_{l+1}^3 + \cdots + A_{r}^3 \Mod{10^9+7}$
+    \item Typ 1: givet heltalen $l,r,v$, sätt $A_i=A_i+v$ för alla $i \in [l,r]$
 \end{itemize}
 
 
@@ -14,13 +14,13 @@ Den första raden innehåller heltalen $N, Q$ ($1 \leq N, Q \leq 2*10^5$).
 
 Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
 
-Om $T=1$ följer heltalen $l, r$ ($0 \leq l \leq r \leq N - 1$). I detta fall ska du skriva ut summan som beskrivet i frågor av typ 1.
+Om $T=0$ följer heltalen $l, r$ ($0 \leq l \leq r \leq N - 1$). I detta fall ska du skriva ut summan som beskrivet i frågor av typ 1.
 
-Om $T=2$ följer heltalen $l, r, v$ ($0 \leq l \leq r \leq N - 1$, $1 \leq V \leq 10^9$). I detta fall ska du uppdatera talen som beskrivet i frågor av typ 2.
+Om $T=1$ följer heltalen $l, r, v$ ($0 \leq l \leq r \leq N - 1$, $1 \leq V \leq 10^9$). I detta fall ska du uppdatera talen som beskrivet i frågor av typ 2.
 
 
 \section*{Utdata}
-För varje fråga med $T=1$, skriv ut summan som beskrivet i frågor av typ 1.
+För varje fråga med $T=0$, skriv ut summan i det efterfrågade intervallet.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på flera testfall.

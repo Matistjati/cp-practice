@@ -23,9 +23,9 @@ q=int(2e5)
 print(n,q)
 if mode=="random":
     for i in range(q):
-        T = randint(1, 2)
+        T = randint(0, 1)
 
-        if T==1:
+        if T==0:
             l = randint(0, n-2)
             r = randint(l, n-1)
             print(T,l,r)
@@ -37,9 +37,9 @@ if mode=="random":
 elif mode=="worstcase":
     
     for i in range(q):
-        T = randint(1, 2)
+        T = randint(0, 1)
 
-        if T==1:
+        if T==0:
             l = randint(0, n-2)
             r = randint(l, n-1)
             print(T,l,r)

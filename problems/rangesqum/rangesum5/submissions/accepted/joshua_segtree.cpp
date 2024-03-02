@@ -276,7 +276,7 @@ int32_t main()
     while (q--)
     {
         dread(int, t);
-        if (t==1)
+        if (t==0)
         {
             dread(int, a, b);
             cout << tree.query(a, b).sum.x << "\n";

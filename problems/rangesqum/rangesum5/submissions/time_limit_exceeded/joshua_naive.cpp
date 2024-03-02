@@ -159,133 +159,16 @@ struct poly
 	}
 };
 
-poly merge(poly a, poly b)
-{
-	poly ret;
-	ret.linearsum = a.linearsum + b.linearsum;
-	ret.squaresum = a.squaresum + b.squaresum;
-	ret.sum = a.sum + b.sum;
-	ret.numvariables = a.numvariables + b.numvariables;
-	return ret;
-}
-
-struct LazyTree // Range add, range max query
-{
-    const poly unit = poly(1);
-    int n;
-    vector<poly> tree;
-    vi lazy;
-    LazyTree(int n) : n(n), tree(n * 4, unit), lazy(n * 4, 0) { rep(i, n) add(i, i, 0); } // correct numvariables
-
-    poly merge(poly a, poly b)
-    {
-        poly ret;
-        ret.linearsum = a.linearsum + b.linearsum;
-        ret.squaresum = a.squaresum + b.squaresum;
-        ret.sum = a.sum + b.sum;
-        ret.numvariables = a.numvariables + b.numvariables;
-        return ret;
-    }
-
-    void push(int x)
-    {
-        tree[x * 2].increment(lazy[x]);
-        tree[x * 2 + 1].increment(lazy[x]);
-        lazy[x * 2] += lazy[x];
-        lazy[x * 2 + 1] += lazy[x];
-        lazy[x] = 0;
-    }
-
-    void add(int x, int l, int r, int ql, int qr, int v)
-    {
-        if (l > qr || r < ql) return;
-        if (l >= ql && r <= qr)
-        {
-            lazy[x] += v;
-            tree[x].increment(v);
-            return;
-        }
-        push(x);
-
-        int mid = (l + r) / 2;
-        add(x * 2, l, mid, ql, qr, v);
-        add(x * 2 + 1, mid + 1, r, ql, qr, v);
-        tree[x] = merge(tree[x * 2], tree[x * 2 + 1]);
-    }
-
-    void add(int ql, int qr, int v) { add(1, 0, n - 1, ql, qr, v); }
-
-    poly query(int x, int l, int r, int ql, int qr)
-    {
-        if (l > qr || r < ql) return poly();
-        if (l >= ql && r <= qr) return tree[x];
-        push(x);
-
-        int mid = (l + r) / 2;
-        return merge(query(x * 2, l, mid, ql, qr), query(x * 2 + 1, mid + 1, r, ql, qr));
-    }
-
-    poly query(int ql, int qr) { return query(1, 0, n - 1, ql, qr); }
-};
-
 int32_t main()
 {
 	fast();
 
-#if 0 && _LOCAL
-	ifstream instream("C:\\users\\matis\\source\\repos\\comp_prog\\x64\\debug\\in.txt");
-	cin.rdbuf(instream.rdbuf());
-#endif
-
-#if 0
-    int n = 4;
-    vector<mint> nums(n);
-    LazyTree tree(n);
-
-
-    int a = 0;
-    int b = 2;
-    int v = 10;
-    repp(i, a, b + 1) nums[i] += v;
-    tree.add(a, b, v);
-    
-    a = 0;
-    b = 1;
-    mint k = 0;
-    repp(i, a, b + 1) k += nums[i] * nums[i] * nums[i];
-    mint r = tree.query(a, b).sum;
-    assert(k.x == r.x);
-#elif 0
-    int n = 100;
-    vector<mint> nums(n);
-    LazyTree tree(n);
-    while (true)
-    {
-        if (randint(0,1))
-        {
-            int a = randint(0, n - 2);
-            int b = randint(a, n - 1);
-            mint k = 0;
-            repp(i, a, b + 1) k += nums[i] * nums[i] * nums[i];
-            mint v = tree.query(a, b).sum;
-            assert(k.x == v.x);
-        }
-        else
-        {
-            int a = randint(0, n - 2);
-            int b = randint(a, n - 1);
-            int v = randint(0, 1000);
-            repp(i, a, b + 1) nums[i] += v;
-            tree.add(a, b, v);
-        }
-    }
-#else
     dread(int, n, q);
     vector<mint> nums(n);
     while (q--)
     {
         dread(int, t);
-        if (t==1)
+        if (t==0)
         {
             dread(int, a, b);
             mint k = 0;
@@ -299,8 +182,6 @@ int32_t main()
             repp(i, a, b + 1) nums[i] += v;
         }
     }
-#endif
-
 
 	quit;
 }
