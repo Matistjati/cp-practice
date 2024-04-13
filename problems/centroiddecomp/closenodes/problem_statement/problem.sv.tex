@@ -1,0 +1,31 @@
+\problemname{Nära nod}
+Givet är ett träd med $N$ noder numrerade mellan $0$ och $N-1$. Till en början är alla noder vita,
+förutom nod $0$ som är svart. Du ska hantera två sorters frågor:
+
+\begin{itemize}
+    \item Typ $0$: givet noden $u$, ändra färgen av nod $u$ från vit till svart
+    \item Typ $1$: givet noden $u$, skriv ut avståndet mellan $u$ och närmsta svarta nod, mätt i kanter korsade
+\end{itemize}
+
+Om en nod dyker upp i en fråga av typ $0$ är den garanterad att vara vit.
+
+
+\section*{Indata}
+Den första raden innehåller heltalen $N, Q$ ($1 \leq N,Q \leq 2*10^5$), antalet noder och antalet frågor.
+
+De följande $N-1$ rader kommer vardera innehålla heltalen $a$ och $b$ ($0 \leq a,b \leq N-1$), vilket
+betyder att det finns en kant mellan nod $a$ och $b$. Dessa kanter är garanterade att forma ett träd.
+
+Därefter följer $Q$ rader som innehåller en fråga vardera. Varje fråga börjar med talet $T$.
+
+Om $T=0$ följer heltalet $u$ ($0 \leq u \leq N-1$), noden som ska ändras från vit till svart.
+
+Om $T=1$ följer heltalet $u$ ($0 \leq u \leq N-1$), noden vi undrar om avståndet till närmsta svarta noden.
+
+\section*{Utdata}
+För varje fråga där $T=1$, skriv ut antalet kanter du behöver korsa för att gå från nod $u$ till en svart nod.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på flera testfall.
+\noindent
+För att lösa problemet måste din lösning lösa alla testfallen korrekt.
