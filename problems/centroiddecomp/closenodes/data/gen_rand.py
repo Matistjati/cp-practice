@@ -10,8 +10,8 @@ def cmdlinearg(name, default=None):
     return default
 
 seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = 1000#int(cmdlinearg("n"))
-q = 1000#int(cmdlinearg("q"))
+n = int(2e5)
+q = n
 print(n,q)
 
 for i in range(n-1):

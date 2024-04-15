@@ -23,6 +23,14 @@ void run() {
     int q = Int(1, int(2e5)); Endl();
 
     UF uf(n);
+    for (int i = 0; i < n-1; i++)
+    {
+        int a = Int(0, n-1);
+        Space();
+        int b = Int(0, n-1);
+        Endl();
+        assert(uf.join(a,b));
+    }
     vector<int> color(n);
     color[0]=0;
     for (int i = 0; i < q; i++)
