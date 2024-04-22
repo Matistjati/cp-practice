@@ -1,0 +1,26 @@
+\problemname{Noder i närheten}
+Givet är ett träd med $N$ noder numrerade mellan $0$ och $N-1$. Du ska hantera följande fråga:
+
+\begin{itemize}
+    \item Givet noden $u$ och heltalet $d$, räkna antalet unika noder du kan nå om du startar på $u$ och korsar som mest $d$
+    stycken kanter.
+\end{itemize}
+
+
+\section*{Indata}
+Den första raden innehåller heltalen $N, Q$ ($1 \leq N,Q \leq 2*10^5$), antalet noder och antalet frågor.
+
+De följande $N-1$ rader kommer vardera innehålla heltalen $a$ och $b$ ($0 \leq a,b \leq N-1$), vilket
+betyder att det finns en kant mellan nod $a$ och $b$. Dessa kanter är garanterade att forma ett träd.
+
+Därefter följer $Q$ rader som innehåller en fråga vardera. 
+
+Varje fråga består av heltalen $u$ och $d$ ($0 \leq u,d \leq N-1)$, startnoden och antalet kanter du får korsa.
+
+\section*{Utdata}
+För varje fråga, skriv ut antalet unika noder du kan nå från $u$ om du korsar som mest $d$ kanter.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på flera testfall.
+\noindent
+För att lösa problemet måste din lösning lösa alla testfallen korrekt.
