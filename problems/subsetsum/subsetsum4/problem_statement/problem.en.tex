@@ -1,0 +1,25 @@
+\problemname{Subset sum 4}
+You are given multiple integers. Your task is to answer whether there exists a subset of these integers, whose
+sum is exactly $T$.
+
+\section*{Input}
+The first line of input contains the integers $M$ and $T$ ($1 \leq M \leq 500$, $1 \leq T \leq 10^{18}$),
+the largest number in the input and the target sum.
+
+The next line contains $M+1$ integers $n_0, n_1, \dots, n_M$ ($1 \leq n_i \leq 10^{12}$). For each $i$,
+$n_i$ means that there are $n_i$ integers of value $i$.
+
+\section*{Output}
+Print \texttt{YES} if there is such a subset, otherwise print \texttt{NO}.
+
+\section*{Explanation of sample 1}
+\begin{enumerate}
+  \item $n_0=0$ means that there are no zeros.
+  \item $n_1=3$ means that we have the integer $1$.
+  \item $n_2=0$ means there are no twos.
+  \item $n_3=3$ means that we have the integers $3,3,3$.
+  \item $\cdots$
+  \item $n_7=2$ means that we have the integers $7,7$.
+\end{enumerate}
+
+If we choose the subset $\{3,3,3,7\}$, we get a subset with sum $16$. Thus, the answer is \texttt{YES}.
