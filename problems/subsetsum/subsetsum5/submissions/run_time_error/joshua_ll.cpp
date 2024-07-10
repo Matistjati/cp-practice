@@ -1,10 +1,10 @@
-// Lowest: 16
+// Lowest: 32 (?)
 #include <bits/stdc++.h>
 using namespace std;
 
 typedef long long ll;
-//#define int ll
-//const int inf = int(1e18);
+#define int ll
+const int inf = int(1e18);
 
 typedef vector<int> vi;
 typedef vector<vi> vvi;

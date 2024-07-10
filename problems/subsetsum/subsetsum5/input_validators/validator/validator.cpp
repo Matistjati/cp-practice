@@ -2,12 +2,12 @@
 #include <set>
 
 void run() {
-    int maxN = Arg("maxn");
-    int maxV = Arg("maxv", 1000);
+    int n = Int(1, 4000);
+    Space();
+    int t = Int(0, int(2e6));
+    Endl();
 
-    int n = Int(1, maxN); Endl();
-
-    SpacedInts(n, 0, maxV);
+    SpacedInts(n, 0, t);
 
     Eof();
 }

@@ -1,12 +1,19 @@
 \problemname{Subset sum 5}
-You are given $N$ integers. 
+You are given $N$ integers. Your task is to determine whether there exists a subset of these integers, whose
+sum is exactly $T$. If such a subset exists, output any such subset. Please also note the unusual memory limit.
 
-\section*{Indata}
-Den första raden innehåller heltalet $N$ ($1 \leq N \leq 10^5$), antalet klossar.
-Därefter följer $N$ heltal $H_i$ ($H_i \leq 100$), höjden på den $i$:te klossen.
-\section*{Utdata}
-Skriv ut ett heltal: antalet unika bilder som Eva tagit när hon är färdig.
+\section*{Input}
+The first line contains the integers $N$ and $T$ ($1 \leq N \leq 4000$, $0 \leq T \leq 2 \cdot 10^6$), the number of
+integers and the target sum.
 
-\section*{Poängsättning}
-Din lösning kommer att testas på flera testfall.
-För att få poäng måste din lösning klara alla testfallen.
+The following line contains $N$ space-separated integers $a_1, a_2, \dots, a_N$ ($0 \leq a_i \leq T$), the integers
+described above.
+
+\section*{Output}
+\begin{itemize}
+    \item If there exists a subset of the input with sum equal to $T$, print \texttt{YES}. 
+    On the next line, print a binary string of length $N$. The $i$:th character means that
+    the $i$:th element in the input should be included your subset. If there are multiple valid subsets
+    answers, you can print any of them.
+    \item If there doesn't exist a subset with sum $T$, print \texttt{NO}.    
+\end{itemize}

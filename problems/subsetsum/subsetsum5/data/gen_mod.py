@@ -18,5 +18,6 @@ n = int(cmdlinearg('n'))
 v = int(cmdlinearg('v'))
 
 items = [(random.randint(2,3)*random.randint(0, 50))%v for i in range(n)]
-print(n)
-print(" ".join(str(i) for i in items))
+print(n, 4*random.randint(0, sum(items)//5)+1)
+random.shuffle(items)
+print(*items)

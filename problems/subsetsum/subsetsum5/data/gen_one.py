@@ -14,12 +14,7 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = int(cmdlinearg('n'))
-v = int(cmdlinearg('v'))
 
-items = [random.randint(0,v) for i in range(n)]
-t = random.randint(0, min(int(2e6), sum(items)))
-print(n, t)
-items = [i if i<=t else random.randint(0, t-1) for i in items]
-random.shuffle(items)
+print(4000, 4000)
+items = [1 for i in range(4000)]
 print(*items)

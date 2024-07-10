@@ -1,4 +1,4 @@
-// Lowest: 16
+// Lowest: 12
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -33,9 +33,9 @@ signed main()
     int n, t;
     cin >> n >> t;
 
-    vvi enabled(n);
 
     bset dp;
+    vi enabled_at(sz(dp));
     dp[0] = 1;
     vi nums;
     rep(i, n)
@@ -47,9 +47,9 @@ signed main()
         dp |= dp << v;
         for (int j = diff._Find_first(); j < sz(dp); j = diff._Find_next(j))
         {
-            enabled[i].push_back(j);
+            enabled_at[j] = i;
         }
-        //rep(j, sz(diff)) if (diff[j]) enabled[i].push_back(j);
+        //rep(j, sz(diff)) if (diff[j]) enabled_at[j] = i;
     }
 
     if (!dp[t])
@@ -59,19 +59,14 @@ signed main()
     }
 
     string ans(n, '0');
-    int i = n - 1;
     while (t)
     {
-        if (find(all(enabled[i]), t) != enabled[i].end())
-        {
-            ans[i] = '1';
-            t -= nums[i];
-        }
-        i--;
+        ans[enabled_at[t]] = '1';
+        t -= nums[enabled_at[t]];
+
     }
     cout << "YES\n";
     cout << ans << "\n";
-    cout << "\n";
 
     return 0;
 }
