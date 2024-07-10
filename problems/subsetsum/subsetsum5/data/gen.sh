@@ -13,12 +13,10 @@ samplegroup
 sample 1
 sample 2
 sample 3
-
+sample 4
 
 group g1full 100
-tc 1
-tc 2
-tc 3
+include_group sample
 tc full1 gen_rand n=4000 v=2000000
 tc full2 gen_rand n=4000 v=2000000
 tc full3 gen_no case=0
