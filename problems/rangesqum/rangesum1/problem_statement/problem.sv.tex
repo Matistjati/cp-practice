@@ -1,0 +1,26 @@
+\problemname{Range Sum}
+Du har en lista med heltalen $A_0, A_1, \dots, A_{N-1}$.
+Du ska svara på $Q$ stycken frågor ”beräkna $A_l+A_{l+1}+\cdots+A_{r}$”, där $l$ och $r$ är olika
+för varje fråga. 
+
+\section*{Indata}
+Den första raden innehåller två heltal $N, Q$ ($1 \leq N, Q \leq 2 \cdot 10^5$).
+
+Nästa rad innehåller $N$ positiva heltal $A_0, A_2, \dots, A_{N-1}$ ($1 \leq A_i \leq 10^9$).
+
+Därefter följer $Q$ rader, som vardera innehåller två heltal $L$ och $R$ ($0 \leq L \leq R \leq N-1$).
+
+\section*{Utdata}
+Skriv ut $Q$ rader som vardera innehåller ett heltal, svaret på motsvarande fråga.
+
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
+  $1$    & $50$      & $N, Q \leq 1000$ \\ \hline
+  $2$    & $50$      & Inga ytterligare begräsningar. \\ \hline
+\end{tabular}
+
+\section*{Förklaring av exempelfall 1}
+I första frågan är $L=0$ och $R=3$. Därmed är svaret $A_0+A_1+A_2+A_3=1+4+3+1=9$.

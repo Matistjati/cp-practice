@@ -1,0 +1,25 @@
+\problemname{Range Sum}
+You have a list with the integers $A_0, A_1, \dots, A_{N-1}$.
+Your task is to answer $Q$ queries of the form ”compute $A_L+A_{L+1}+\cdots+A_{R}$”, where $L$ and $R$
+are different for query.
+
+\section*{Indata}
+The first line of input contains two integers $N, Q$ ($1 \leq N \leq 3 \cdot 10^5$, $1 \leq Q \leq 10^5$).
+
+The next line contains $N$ positive integers $A_0, A_1, \dots, A_{N-1}$ ($1 \leq A_i \leq 10^9$).
+
+Afterwards, $Q$ lines follow, each containing two integers $L_{i},R_{i}$ ($0 \leq L_{i} \leq R_{i} \leq N-1$).
+
+\section*{Utdata}
+Output $Q$ rows, with the $i$:th one containing the answer to the $i$:th question.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $50$      &  $N,Q \leq 1000$ \\ \hline
+  $2$    & $50$      & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of sample 1}
+In the first query, $L=0$ and $R=3$. Therefore, the answer is $A_0+A_1+A_2+A_3=1+4+3+1=9$.
