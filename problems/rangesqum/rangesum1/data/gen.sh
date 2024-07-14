@@ -9,6 +9,7 @@ compile gen_rand.py
 samplegroup
 limits maxn=100 maxq=100
 sample 1
+sample 2
 
 group g1 50
 limits maxn=1000 maxq=1000
