@@ -1,0 +1,36 @@
+\problemname{Super List}
+Joshua is fed up with lists taking $O(N)$ time for insertion and deletion. Help him by finding a data
+structure that supports the following operations (all 0-indexed):
+
+\begin{enumerate}
+  \item Insert the value $v$ at position $p$.
+  \item Delete the item at position $p$.
+  \item Print the item at position $p$. 
+\end{enumerate}
+
+\section*{Input}
+The first line of input contains an integer $Q$ ($1 \leq Q \leq 5 \cdot 10^5$), the number of operations.
+
+The following $Q$ lines each contain one operation. It begins with an integer $T$.
+\begin{itemize}
+  \item If $T=0$, the values $p$ and $v$ follow ($1 \leq v \leq 10^9$). The operation is described above.
+  \item If $T=1$, the value $p$ follows. The operation is described above.
+  \item If $T=2$, the value $p$ follows. The operation is described above.
+\end{itemize}
+It is guaranteed that if $T=0$, then $p \leq$ the number of elements currently in the data structure.
+If $T \in \{1, 2\}$, then $p <$ the number of elements currently in the data structure.
+
+Also remember to use fast I/O.
+
+\section*{Output}
+For each $T=2$, print the item currently at position $p$.
+
+\section*{Explanation of sample}
+After each of the insert and erase operations, the array looks like this:
+\begin{itemize}
+  \item $[10]$
+  \item $[2, 10]$
+  \item $[2, 5, 10]$
+  \item $[2, 5, 10, 4]$
+  \item $[2, 10, 4]$
+\end{itemize}
