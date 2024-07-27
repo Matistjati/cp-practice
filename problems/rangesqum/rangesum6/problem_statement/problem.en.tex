@@ -1,0 +1,43 @@
+\problemname{Range Sum 6}
+
+You are given a list with the integers $A_0, A_1, \dots, A_{n-1}$. You need to handle the following queries:
+
+
+\begin{itemize}
+    \item Type 1: given the integers $l, r$ and $h$, set $A_i=min(A_i, h)$ for each $i \in [l,r]$
+    \item Type 2: given the integers $l, r$ and $x$, set $A_i=A_i+x$ for each $i \in [l,r]$
+    \item Type 3: given the integers $l, r$, print the value of $A_l+A_{l+1}+\cdots+A_{r}$
+\end{itemize}
+
+
+\section*{Input}
+The first line contains the integers $N, Q$ ($1 \leq N, Q \leq 2*10^5$).
+
+The next line contains the integers $A_0, A_1, \dots, A_{n-1}$ ($0 \leq A_i \leq 10^8$).
+
+The following $Q$ lines each contain one query each. Each query begins with the number $T$.
+
+If $T=1$, then the integers $l, r$ and $h$ follow ($0 \leq l \leq r \leq N - 1$, $0 \leq h \leq 10^8$).
+
+If $T=2$, then the integers $l, r$ and $x$ follow ($0 \leq l \leq r \leq N - 1$, $1 \leq x \leq 10^8$).
+
+If $T=3$, then the integers $l, r$ follow ($0 \leq l \leq r \leq N - 1$).
+
+It is possible to prove that all integers used in the calculations fit in a signed 64-bit integer.
+
+\section*{Utdata}
+For each query with $T=3$, print the sum of the numbers in the requested interval.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+Each test group contains a set of test cases.
+To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $50$         & $T \neq 2$  \\ \hline
+  $2$    & $1$          & $T \neq 1$ \\ \hline
+  $3$    & $49$         & No additional constraints. \\ \hline
+\end{tabular}
