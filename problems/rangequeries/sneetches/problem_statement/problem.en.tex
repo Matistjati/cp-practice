@@ -1,0 +1,62 @@
+\problemname{Sneetches}
+There is a line of Sneetches on a beach. Each one may or may not have a star on its belly initially.
+
+Your task is to process $Q$ queries:
+
+\begin{itemize}
+    \item Type 1: given integers $l, r$, each Sneetch in the range $[l,r]$ will swap whether or not it has a star on its belly.
+    So if it had a star on its belly before, it doesn't after and vice versa.
+    \item Type 2: given integers $l, r$, sort all Sneetches in the range $[l, r]$ such that all sneeches without a star
+    come first, and then all the Sneetches with a star.
+\end{itemize}
+
+After each query, output the largest consecutive interval of Sneetches that have the same number of stars on their bellies.
+
+\section*{Input}
+The first line of input contains the integers $N,Q$ ($1 \leq N,Q \leq 10^5$).
+
+The second line contains a binary string of length $N$, the $i$:th character being $1$ symbolizing that the $i$:th sneetch has
+a star on its belly, and vice versa. 
+
+The following $Q$ lines each contain one query each. Each query is described by the integers
+$T, l, r$ ($1 \leq T \leq 2$, $0 \leq l \leq r \leq N - 1$), the type and the bounds of the query.
+
+\section*{Output}
+After each query, output the size of the largest consecutive interval of Sneetches that have the same number of stars on their bellies.
+
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+Each test group contains a set of test cases.
+To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Point value} & \textbf{Constraints} \\ \hline
+  $1$    & $25$         & $T = 2$  \\ \hline
+  $2$    & $50$         & $T = 1$ \\ \hline
+  $3$    & $25$         & No additional constraints. \\ \hline
+\end{tabular}
+
+Note: this problem is an adaptation of the problem Sneetches and Speeches 3 by SecondThread, which is itself
+an adaptation of Star-Belly Sneetches by Matt Fontaine. The use of this task is to have a task with only the
+xor and sort operations, so that treaps aren't needed.
+
+\section*{Explanation of sample}
+Sample 1:
+\begin{itemize}
+  \item After query 1: 101101
+  \item After query 2: 111101
+  \item After query 3: 000011
+  \item After query 4: 000000
+\end{itemize}
+
+
+Sample 2:
+\begin{itemize}
+  \item After query 1: 101100
+  \item After query 2: 001110
+  \item After query 3: 010001
+  \item After query 4: 100001
+\end{itemize}
