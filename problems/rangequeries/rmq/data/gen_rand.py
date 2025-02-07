@@ -16,12 +16,12 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 
-n,q = int(2e5),int(2e5)
+n,q = int(4e5),int(4e5)
 
 print(n,q)
 
 
-print(" ".join(str(randint(1,int(2e5))) for i in range(n)))
+print(" ".join(str(randint(1,int(4e5))) for i in range(n)))
 
 for i in range(q):
     l = randint(0, n-2)

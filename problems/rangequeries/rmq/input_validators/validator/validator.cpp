@@ -6,7 +6,7 @@ void run() {
     Space();
     int q = Int(1, Arg("maxq"));
     Endl();
-    SpacedInts(n, 1, int(2e5));
+    SpacedInts(n, 1, int(4e5));
 
     for (int i = 0; i < q; i++)
     {
