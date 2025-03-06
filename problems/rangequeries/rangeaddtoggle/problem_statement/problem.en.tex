@@ -1,0 +1,31 @@
+\problemname{Range Add and Toggle}
+
+You have a list $N$ of integers $a_0, a_1, \dots, a_{N-1}$. In the beginning, $A_i=0$. Additionally, each number
+is either active or inactive. Initially, all numbers are inactive.
+
+You then have handle $Q$ queries of the following types:
+\begin{itemize}
+    \item Type 1: print the value of $a_i$.
+    \item Type 2: add $v$ to all active $a_i$ that are active in the interval $a_l, a_{l+1}, \dots, a_{r}$.
+    \item Type 3: toggle whether $a_i$ is active or not. 
+\end{itemize}
+
+After all queries have been processed, also print all the integers.
+
+\section*{Input}
+The first line contains two integers $N$ and $Q$ ($1 \leq N, Q \leq 4 \cdot 10^5$),
+the number of integers and the number of queries.
+
+The following $Q$ lines each contain one query each. Each query begins with the number $T$.
+
+If $T=1$, then the integer $i$ follows ($0 \leq i \leq N - 1$).
+
+If $T=2$, then the integers $l, r$ and $v$ follow ($0 \leq l \leq r \leq N - 1$, $1 \leq v \leq 10^7$).
+
+If $T=3$, then the integer $i$ follows ($0 \leq i \leq N - 1$).
+
+
+\section*{Output}
+For each query of type $1$, print the answer to it in the order given in the input.
+
+Afterwards, print $a_0, a_1, \dots, a_{N-1}$ on a single line, separated by spaces.
