@@ -103,7 +103,7 @@ int main()
 		}
 	}
 
-	cout << int(LPSolver(A, b, c).solve(x));
+	cout << int(LPSolver(A, b, c).solve(x)) << '\n';
 
 	return 0;
 }
