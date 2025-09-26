@@ -2,7 +2,12 @@
 . ../../testdata_tools/gen.sh
 ulimit -s unlimited
 
-use_solution cheat.py
+use_solution joshua.cpp
+
+samplegroup
+sample 1
+sample 2
 
 group full 100
-tc_manual 1
+include_group sample
+tc_manual ../manual_tests/3.in

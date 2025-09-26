@@ -5,10 +5,16 @@ För att behålla makten behöver du muta din adel. Varje adelsman har en viss f
 
 Adeln har bildat fraktioner och varje adelsman har en viss förmåga att öka sin fraktions makt per krona du ger dem, $y_{i,j}$ kr.
 
-För att få fram en fraktions makt så multiplicerar man hur mycket pengar du ger varje adelsman med dess förmåga, $y_{i,j}$, och summerar ihop. Om en fraktion får mer än $t_j$ makt så blir du avsatt.
+För att få fram en fraktions makt så multiplicerar man hur mycket pengar du ger varje adelsman med dess förmåga, $y_{i,j}$,
+och summerar ihop. Om en fraktion får mer än $t_j$ makt så blir du avsatt.
 
 \Section*{Indata}
 Första raden innehåller två heltal $M, N$ ($1 \leq M \leq 40, 1 \leq N \leq 20$), antalet fraktioner och antalet adelsmän.
+
 Därefter följer $N$ heltal $1 \leq x_i \leq 10$, hur mycket den $i$:te adelsmannen kan hjälpa dig per krona.
 
-Hur mycket hjälp kan du köpa dig till utan att förlora makten? Avrunda neråt.
+Sedan följer $M$ rader som vardera innehåller $N+1$ heltal. Det första är $_i$, den maximala makten den
+$i$:te fraktionen kan få. De resterande $N$ heltalen är $y_{i,j}$, hur mycket adelsman $j$ stärker fraktion $i$ per krona.
+
+\Section*{Utdata}
+Hur mycket hjälp kan du köpa dig till utan att förlora makten? Avrunda neråt till närmsta heltal.
