@@ -16,23 +16,26 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 n = int(cmdlinearg('n'))
 q = int(cmdlinearg('q'))
-t = int(cmdlinearg('t', 0))
+p_query = float(cmdlinearg('p_query'))
+mode = cmdlinearg('mode')
+
 print(n,q)
-print(" ".join(str(random.randint(1, int(1e9))) for i in range(n)))
+print(*(random.randint(1, 10**9) for i in range(n)))
 for i in range(q):
-    T = random.randint(1, 2)
-    if t and random.randint(0,1):
-        T = 1
+    T = 1 if random.random() < p_query else 2
     if T == 1:
-        l = random.randint(0, n-1)
-        r = random.randint(0, n-1)
-        if l > r:
-            l, r = r, l
-        if t:
-            l = random.randint(0, l)
-            r = random.randint(r, n-1)
+        if mode == "random":
+            l = random.randint(0, n-1)
+            r = random.randint(0, n-1)
+            if l > r:
+                l, r = r, l
+        elif mode == "wide":
+            l = random.randint(0, 2*int(n**0.5))
+            r = random.randint(n - 2*int(n**0.5), n-1)
+        else:
+            assert 0
         print(T, l, r)
     else:
         x = random.randint(0, n-1)
-        y = random.randint(1, int(1e9))
+        y = random.randint(1, 10**9)
         print(T, x, y)

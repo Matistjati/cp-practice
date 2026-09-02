@@ -1,25 +1,38 @@
 \problemname{Range Sum 2}
-Givet är $N$ positiva heltal. Du ska svara på $Q$ frågor av formen "vad är summan av talen i intervallet $[l,r]$" eller "ändra det $x$:te talet till $y$".
+Du får givet en lista med $N$ heltal $A_0, A_1, \dots, A_{N-1}$.
+
+Du måste hantera $Q$ stycken frågor av två typer:
+\begin{itemize}
+  \item Typ 1: givet heltalen $l$ och $r$, skriv ut summan av talen i intervallet $[l,r]$, det vill säga $A_l + A_{l+1} + \dots + A_r$.
+  \item Typ 2: givet heltalen $x$ och $y$, sätt $A_x = y$.
+\end{itemize}
 
 \section*{Indata}
 Den första raden innehåller två heltal $N, Q$ ($1 \leq N \leq 3 \cdot 10^5$, $1 \leq Q \leq 10^5$).
 
-Nästa rad innehåller $N$ positiva heltal $1 \leq A_i \leq 10^9$.
+Nästa rad innehåller $N$ positiva heltal $A_0, A_1, \dots, A_{N-1}$ ($1 \leq A_i \leq 10^9$),
+den givna listan.
 
-Därefter följer $Q$ rader, som vardera innehåller tre heltal \texttt{1 l r} ($0 \leq l \leq r \leq N-1$) eller \texttt{2 x y} ($0 \leq x \leq N-1$, $1 \leq A_i \leq 10^9$).
+Därefter följer $Q$ rader som vardera innehåller en fråga. Varje fråga börjar med talet $T$ ($T \in \{1,2\}$).
+
+Om $T=1$ följer heltalen $l, r$ ($0 \leq l \leq r < N$).
+I detta fall ska du skriva ut summan av talen i intervallet $[l,r]$.
+
+Om $T=2$ följer heltalen $x$ och $y$ ($0 \leq x < N$, $1 \leq y \leq 10^9$).
+I detta fall ska du sätta $A_x = y$.
+
 
 \section*{Utdata}
-Skriv ut $Q$ rader som vardera innehåller ett heltal, svaret på motsvarande fråga.
+För varje fråga med $T=1$, skriv ut summan i det efterfrågade intervallet.
 
 \section*{Poängsättning}
-Din lösning kommer att testas på två testfallsgrupper.
-\noindent
+Din lösning kommer att testas på en mängd testfallsgrupper.
 För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
 \noindent
-\begin{tabular}{| l | l | l |}
+\begin{tabular}{| l | l | p{12cm} |}
 \hline
-  Grupp & Poängvärde & Gränser \\ \hline
+  \textbf{Grupp} & \textbf{Poäng} & \textbf{Gränser} \\ \hline
   $1$    & $50$       &  $N,Q \leq 1000$ \\ \hline
-  $2$    & $50$       &  Inga ytterligare begränsningar \\ \hline
+  $2$    & $50$       &  Inga ytterligare begränsningar. \\ \hline
 \end{tabular}

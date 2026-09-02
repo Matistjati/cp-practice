@@ -1,0 +1,38 @@
+\problemname{Range Sum 2}
+You are given a list of $N$ integers $A_0, A_1, \dots, A_{N-1}$.
+
+You must handle $Q$ queries of two types:
+\begin{itemize}
+  \item Type 1: given the integers $l$ and $r$, print the sum of the numbers in the interval $[l,r]$, that is $A_l + A_{l+1} + \dots + A_r$.
+  \item Type 2: given the integers $x$ and $y$, set $A_x = y$.
+\end{itemize}
+
+\section*{Input}
+The first line contains two integers $N, Q$ ($1 \leq N \leq 3 \cdot 10^5$, $1 \leq Q \leq 10^5$).
+
+The next line contains $N$ positive integers $A_0, A_1, \dots, A_{N-1}$ ($1 \leq A_i \leq 10^9$),
+the given list.
+
+Then follow $Q$ lines, each containing one query. Each query starts with the number $T$ ($T \in \{1,2\}$).
+
+If $T=1$, the integers $l, r$ follow ($0 \leq l \leq r < N$).
+In this case you should print the sum of the numbers in the interval $[l,r]$.
+
+If $T=2$, the integers $x$ and $y$ follow ($0 \leq x < N$, $1 \leq y \leq 10^9$).
+In this case you should set $A_x = y$.
+
+
+\section*{Output}
+For each query with $T=1$, print the sum over the requested interval.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+\hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $50$       &  $N,Q \leq 1000$ \\ \hline
+  $2$    & $50$       &  No additional constraints. \\ \hline
+\end{tabular}
